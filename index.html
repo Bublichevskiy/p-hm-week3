@@ -1,0 +1,35 @@
+<pre>
+1 завдання:
+from datetime import datetime
+
+def get_days_from_today(date):
+    try:
+        new_date = datetime.strptime(date, "%Y-%m-%d")
+        now = datetime.today()
+        difference = new_date - now
+        return difference.days
+    except ValueError:
+        print("Формат дати є нерівним, Напишіть дату за зразком 'РРРР-ММ-ДД' ")
+
+print(get_days_from_today("2026-10-09")) # Будь яка дата, до якої програма буде рахувати дні
+
+2 завдання:
+import random
+
+def get_number_ticket(min, max, qua):
+    if min < 1 or max > 1000 or qua < 1 or qua > (max - min + 1):
+        print("Помилка")
+        return []
+
+    numbers_set = set()
+
+    while len(numbers_set) < qua:
+        numbers = random.randint(min, max)
+        numbers_set.add(numbers)
+
+    return sorted(numbers_set)
+
+lottery_numbers = get_number_ticket(1, 49, 6)
+if lottery_numbers:
+    print("Ваші числа:", lottery_numbers)
+</pre>
